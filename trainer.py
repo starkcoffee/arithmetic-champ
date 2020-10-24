@@ -17,15 +17,16 @@ def compose_response(was_close_enough, true_value):
     response += "Yeh good job!🥳\n"
   else:
     response += "Nah\n"
-  response += f'Answer is {true_value}'
+  response += f'Answer is {true_value}\n'
 
   return response
 
 def main():
   challenge_str, true_value, tolerance_percent = generate_challenge()
-  answer = float(input(prompt(challenge_str)))
-  close_enough = is_close_enough(answer, true_value, tolerance_percent)
-  print(compose_response(close_enough, true_value))
+  while True:
+    answer = float(input(prompt(challenge_str)))
+    close_enough = is_close_enough(answer, true_value, tolerance_percent)
+    print(compose_response(close_enough, true_value))
 
 if __name__ == '__main__':
   main()
