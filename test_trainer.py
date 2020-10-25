@@ -8,9 +8,15 @@ def test_prompt():
 
 def test_generate_challenge():
   challenge_str, true_value, tolerance_percent = generate_challenge()
+  assert re.search('\\d/\\d', challenge_str)
   assert eval(challenge_str) == true_value
   assert tolerance_percent >= 0 
   assert tolerance_percent < 20
+
+def test_generate_challenge_gives_different_challenges():
+  challenge_str1, *_ = generate_challenge()
+  challenge_str2, *_ = generate_challenge()
+  assert challenge_str1 != challenge_str2
 
 def test_is_close_enough():
   assert is_close_enough(42, 42, 0)

@@ -1,8 +1,9 @@
 [ ] finish basic impl
   [x] set up scaffold
   [x] add loop
-  [ ] generate random numerators and denominators
-[ ] create git repo
+  [x] generate random numerators and denominators
+  [ ] limit numerators to multiples of 100
+[x] create git repo
 
 🥳 YAYAYAYAYA!!
 
