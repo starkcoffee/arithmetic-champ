@@ -3,9 +3,12 @@ from random import randint
 def prompt(challenge):
   return f"What is {challenge} ?\n"
 
+def generate_numerator():
+  return (randint(100,10000)//100)*100
+
 # returns (challenge_str, true_value, tolerance_percent)
 def generate_challenge():
-  numerator = randint(100,10000)
+  numerator = generate_numerator()
   denominator = randint(6, 100)
   return f"{numerator}/{denominator}", numerator/denominator, 0
 

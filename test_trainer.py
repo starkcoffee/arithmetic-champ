@@ -6,6 +6,11 @@ def test_prompt():
   assert prompt("100/14") == "What is 100/14 ?\n"
   assert prompt("3000/24") == "What is 3000/24 ?\n"
 
+def test_generate_numerator():
+  assert generate_numerator() >= 100 
+  assert generate_numerator() <= 10000 
+  assert generate_numerator() % 100 == 0
+
 def test_generate_challenge():
   challenge_str, true_value, tolerance_percent = generate_challenge()
   assert re.search('\\d/\\d', challenge_str)
