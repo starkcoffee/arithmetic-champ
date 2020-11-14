@@ -1,14 +1,28 @@
-import sys
+from sys import argv
+from time import time 
 from random import randint
+from statistics import mean
 
 TOLERANCE = 0.05
 
 def main():
-  for i in range(int(sys.argv[1])):
+  
+  completion_times_in_seconds = []
+
+  for i in range(int(argv[1])):
+
     challenge_str, true_value, tolerance = generate_challenge()
+
+    start = time()
     answer = float(input(prompt(challenge_str)))
+    stop = time()
+    completion_times_in_seconds.append(round(stop - start))
+
     close_enough = is_close_enough(answer, true_value, tolerance)
     print(compose_response(close_enough, true_value))
+
+  mean_completion_time_s = round(mean(completion_times_in_seconds),2)
+  print(f"Avg completion time was {mean_completion_time_s}")
 
 def prompt(challenge):
   return f"What is {challenge} ?\n"
