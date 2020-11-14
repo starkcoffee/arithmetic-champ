@@ -1,9 +1,11 @@
-[ ] finish basic impl
+[x] finish basic impl
   [x] set up scaffold
   [x] add loop
   [x] generate random numerators and denominators
-  [ ] limit numerators to multiples of 100
+  [x] limit numerators to multiples of 100
 [x] create git repo
+[x] evaluate ans as correct if within tolerance
+  [x] decide what tolerance should be
 
 🥳 YAYAYAYAYA!!
 

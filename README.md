@@ -1,2 +1,2 @@
-# arithmetic-champ
+# arithmetic-champ 🔢🏆
 Arithmetic trainer

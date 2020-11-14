@@ -15,8 +15,7 @@ def test_generate_challenge():
   challenge_str, true_value, tolerance_percent = generate_challenge()
   assert re.search('\\d/\\d', challenge_str)
   assert eval(challenge_str) == true_value
-  assert tolerance_percent >= 0 
-  assert tolerance_percent < 20
+  assert tolerance_percent == 0.05
 
 def test_generate_challenge_gives_different_challenges():
   challenge_str1, *_ = generate_challenge()
@@ -25,8 +24,8 @@ def test_generate_challenge_gives_different_challenges():
 
 def test_is_close_enough():
   assert is_close_enough(42, 42, 0)
-  assert is_close_enough(41, 42, 2)
-  assert not is_close_enough(42, 24, 3)
+  assert not is_close_enough(41, 42, 0.01)
+  assert is_close_enough(41, 42, 0.03)
 
 def test_compose_response_for_good_enough_answer():
   response = compose_response(True, 42) 
