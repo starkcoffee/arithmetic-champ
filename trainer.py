@@ -1,9 +1,10 @@
+import sys
 from random import randint
 
 TOLERANCE = 0.05
 
 def main():
-  while True:
+  for i in range(int(sys.argv[1])):
     challenge_str, true_value, tolerance = generate_challenge()
     answer = float(input(prompt(challenge_str)))
     close_enough = is_close_enough(answer, true_value, tolerance)

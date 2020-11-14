@@ -6,6 +6,12 @@
 [x] create git repo
 [x] evaluate ans as correct if within tolerance
   [x] decide what tolerance should be
+[ ] add a timer
+  [x] stop after n times
+  [ ] time each one
+  [ ] print out avg time
+  [ ] keep track of correct count
+  [ ] print out correct number
 
 🥳 YAYAYAYAYA!!
 
