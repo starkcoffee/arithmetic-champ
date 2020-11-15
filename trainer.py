@@ -8,7 +8,7 @@ TOLERANCE = 0.05
 
 def main():
   
-  completion_times_in_seconds = []
+  results = []
 
   for i in range(int(argv[1])):
 
@@ -16,13 +16,16 @@ def main():
 
     task = lambda: float(input(prompt(challenge_str))) 
     time, answer = time_task_in_seconds(task)
-    completion_times_in_seconds.append(time)
 
     close_enough = is_close_enough(answer, true_value, tolerance)
+    results.append((time, close_enough))
+
     print(compose_response(close_enough, true_value))
 
-  mean_completion_time_s = round(mean(completion_times_in_seconds),2)
-  print(f"Avg completion time was {mean_completion_time_s}")
+  mean_completion_time_s = round(mean([t[0] for t in results ]),2)
+  success_rate = round([ t[1] for t in results ].count(True) / len(results) * 100)
+  print(f"Avg completion time: {mean_completion_time_s}s")
+  print(f"Success rate: was {success_rate}%")
 
 # returns (completion_time_seconds, task_return_val)
 def time_task_in_seconds(task):

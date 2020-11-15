@@ -10,8 +10,8 @@
   [x] stop after n times
   [x] time each one
   [x] print out avg time
-[ ] keep track of correct count
-  [ ] print out correct number
+[x] keep track of correct count
+  [x] print out correct number
 [ ] rethink tolerance
   [ ] it could be disregarding digits given the size of numerator
 
