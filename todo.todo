@@ -12,8 +12,7 @@
   [x] print out avg time
 [x] keep track of correct count
   [x] print out correct number
-[ ] rethink tolerance
-  [ ] it could be disregarding digits given the size of numerator
+[x] append a report line to arithmetic-training-results.csv
 
 🥳 YAYAYAYAYA!!
 

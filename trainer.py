@@ -3,6 +3,7 @@ from time import time
 from random import randint
 from statistics import mean
 from contextlib import contextmanager
+from datetime import date
 
 TOLERANCE = 0.05
 
@@ -26,6 +27,10 @@ def main():
   success_rate = round([ t[1] for t in results ].count(True) / len(results) * 100)
   print(f"Avg completion time: {mean_completion_time_s}s")
   print(f"Success rate: was {success_rate}%")
+  with open('arithemtic-training-results.csv', 'a') as report_file:
+    isodate = date.today().isoformat()
+    num_tasks = len(results)
+    report_file.write(f"{isodate},{num_tasks},{mean_completion_time_s},{success_rate}\n")
 
 # returns (challenge_str, true_value, tolerance)
 def generate_challenge():
