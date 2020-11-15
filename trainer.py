@@ -27,24 +27,24 @@ def main():
   print(f"Avg completion time: {mean_completion_time_s}s")
   print(f"Success rate: was {success_rate}%")
 
+# returns (challenge_str, true_value, tolerance)
+def generate_challenge():
+  numerator = generate_numerator()
+  denominator = randint(6, 100)
+  return f"{numerator}/{denominator}", numerator/denominator, TOLERANCE
+
+def generate_numerator():
+  return (randint(100,10000)//100)*100
+
+def prompt(challenge):
+  return f"What is {challenge} ?\n"
+
 # returns (completion_time_seconds, task_return_val)
 def time_task_in_seconds(task):
   start = time()
   task_return_val = task()
   stop = time()
   return round(stop - start), task_return_val
-
-def prompt(challenge):
-  return f"What is {challenge} ?\n"
-
-def generate_numerator():
-  return (randint(100,10000)//100)*100
-
-# returns (challenge_str, true_value, tolerance)
-def generate_challenge():
-  numerator = generate_numerator()
-  denominator = randint(6, 100)
-  return f"{numerator}/{denominator}", numerator/denominator, TOLERANCE
 
 def is_close_enough(answer, true_value, tolerance):
   return abs(answer - true_value) <= tolerance * true_value
