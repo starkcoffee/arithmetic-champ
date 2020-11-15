@@ -2,6 +2,15 @@ import pytest
 import re
 from trainer import *
 
+def test_results():
+  results = Results()
+  results.append(1, True)
+  results.append(3, False)
+
+  assert results.mean_completion_time_s() == 2
+  assert results.success_rate() == 50
+  assert results.count() == 2
+
 def test_prompt():
   assert prompt("100/14") == "What is 100/14 ?\n"
   assert prompt("3000/24") == "What is 3000/24 ?\n"
