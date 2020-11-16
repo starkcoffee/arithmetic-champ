@@ -4,8 +4,10 @@ from random import randint
 from statistics import mean
 from contextlib import contextmanager
 from datetime import date
+import random
 
 TOLERANCE = 0.05
+CELEBRATE_EMOJIS = ['🥳','🐝','🌟'] 
 
 class Results:
   def __init__(self):
@@ -13,7 +15,7 @@ class Results:
   def append(self, time_s, success):
     self.results.append((time_s, success))
   def mean_completion_time_s(self):
-    return round(mean([t[0] for t in self.results ]),2)
+    return round(mean([ t[0] for t in self.results ]), 2)
   def success_rate(self): 
     return round([ t[1] for t in self.results].count(True) / len(self.results) * 100)
   def count(self):
@@ -67,7 +69,8 @@ def compose_response(was_close_enough, true_value):
   response = "\n"
 
   if was_close_enough:
-    response += "Yeh good job!🥳\n"
+    emoji = random.choice(CELEBRATE_EMOJIS)
+    response += f"Yeh good job!{emoji}\n"
   else:
     response += "Nah\n"
   response += f'Answer is {true_value}\n'
