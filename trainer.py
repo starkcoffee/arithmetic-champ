@@ -29,7 +29,7 @@ def main():
 
     challenge_str, true_value, tolerance = generate_challenge()
 
-    task = lambda: float(input(prompt(challenge_str))) 
+    task = lambda: get_answer(prompt(challenge_str)) 
     time, answer = time_task_in_seconds(task)
     close_enough = is_close_enough(answer, true_value, tolerance)
     results.append(time, close_enough)
@@ -54,6 +54,13 @@ def generate_numerator():
 
 def prompt(challenge):
   return f"What is {challenge} ?\n"
+
+def get_answer(prompt_str):
+  while True:
+    try:
+      return float(input(prompt_str)) 
+    except:
+      print("Woops!🤪 Please type a number.")
 
 # returns (completion_time_seconds, task_return_val)
 def time_task_in_seconds(task):

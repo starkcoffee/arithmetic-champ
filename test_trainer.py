@@ -31,6 +31,14 @@ def test_generate_challenge_gives_different_challenges():
   challenge_str2, *_ = generate_challenge()
   assert challenge_str1 != challenge_str2
 
+def test_get_answer_returns_a_float_from_user_input(mocker):
+  mocker.patch('builtins.input', return_value='7.5')
+  assert get_answer('prompt') == 7.5
+
+def test_get_answer_keeps_asking_until_it_gets_valid_input(mocker):
+  mocker.patch('builtins.input', side_effect=['hi', 'there', 42])
+  assert get_answer('prompt') == 42
+
 def test_is_close_enough():
   assert is_close_enough(42, 42, 0)
   assert not is_close_enough(41, 42, 0.01)

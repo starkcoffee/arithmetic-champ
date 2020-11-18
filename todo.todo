@@ -13,8 +13,10 @@
 [x] keep track of correct count
   [x] print out correct number
 [x] append a report line to arithmetic-training-results.csv
-[ ] alternate celebrate emojis to include bienchen and sternchen
-[ ] catch non-digit input
+[x] alternate celebrate emojis to include bienchen and sternchen
+[x] catch non-digit input for answer
+[ ] do some input checking on argv
+[ ] figure out the variance since some sums are super easy
 
 🥳 YAYAYAYAYA!!
 
